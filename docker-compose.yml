@@ -9,7 +9,7 @@ volumes:
 services:
   # region https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion#separate-containers
   nginx:
-    image: webyneter/ansible-role-reversario:nginx-1.15-alpine
+    image: nginx:1.15-alpine
     container_name: nginx
     restart: unless-stopped
     volumes:
@@ -22,7 +22,7 @@ services:
       - "443:443"
 
   nginx-gen:
-    image: webyneter/ansible-role-reversario:nginx-gen-0.7.3
+    image: webyneter/nginx-gen:0.7.3
     container_name: nginx-gen
     restart: unless-stopped
     volumes:
@@ -34,7 +34,7 @@ services:
     command: -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
 
   nginx-letsencrypt:
-    image: webyneter/ansible-role-reversario:nginx-letsencrypt-v1.9
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.9
     container_name: nginx-letsencrypt
     restart: unless-stopped
     depends_on:

@@ -1,10 +1,10 @@
-# ansible-role-reversario
+# reversario
 
-Dynamically add & serve anything as virtual hosts behind nginx, with automatic configuration generation and letsencrypt certificate renewal.
+Ansible role to dynamically add & serve anything as virtual hosts behind nginx, with automatic configuration generation and letsencrypt certificate renewal.
 
 ## Overview
 
-Combines [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy), [jwilder/docker-gen](https://index.docker.io/u/jwilder/docker-gen/) and [JrCs/docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) into Docker Compose stack runnable on your bare-bones deployment instance.
+Combines [webyneter/nginx-gen](https://github.com/webyneter/nginx-gen), [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy), and [JrCs/docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) into Docker Compose stack runnable on any bare-bones instance.
 
 ## Prerequisites
 
