@@ -2,8 +2,3 @@
 
 project_name: "reversario"
 project_dir_path: "{{ root_dir_path }}/{{ project_name }}"
-commit_sha_dir_path: "{{ project_dir_path }}/{{ commit_sha }}"
-
-docker_compose:
-  REGISTRY_FULL_PATH: "{{ registry_full_path }}"
-  IMAGE_TAG: "{{ commit_sha }}"

@@ -2,44 +2,24 @@
 
 - include_tasks: check_required_vars.yml
 
-- name: "Create {{ commit_sha_dir_path }}/"
+- name: "Create {{ project_dir_path }}/"
   file:
-    path: "{{ commit_sha_dir_path }}"
+    path: "{{ project_dir_path }}"
     recurse: yes
     state: directory
 
-- name: "Copy docker-compose files to {{ commit_sha_dir_path }}/"
+- name: "Copy docker-compose files to {{ project_dir_path }}/"
   copy:
     src: "{{ item }}"
-    dest: "{{ commit_sha_dir_path }}"
+    dest: "{{ project_dir_path }}"
   loop:
   - ./docker-compose.yml
 
-- name: "Pull {{ commit_sha }} images from {{ registry_url }}"
-  environment: "{{ docker_compose }}"
-  block:
-  - name: "Login to {{ registry_url }}"
-    no_log: True
-    command: >
-      docker login
-        --username "{{ registry_username }}"
-        --password "{{ registry_password }}"
-        "{{ registry_url }}"
-  - name: "Pull {{ commit_sha }} images"
-    environment: "{{ docker_compose }}"
-    command: >
-      docker-compose
-        --file "{{ commit_sha_dir_path }}/docker-compose.yml"
-        pull
-  - name: "Logout of {{ registry_url }}"
-    command: docker logout "{{ registry_url }}"
-
 - name: Re/start stack
-  environment: "{{ docker_compose }}"
   command: >
     docker-compose
       --project-name "{{ project_name }}"
-      --file "{{ commit_sha_dir_path }}/docker-compose.yml"
+      --file "{{ project_dir_path }}/docker-compose.yml"
       up
       --detach
       --force-recreate

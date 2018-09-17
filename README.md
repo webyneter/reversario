@@ -10,3 +10,7 @@ Combines [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy), [jwilder
 
 * Docker (tested with 18.06)
 * Docker Compose (tested with 1.22)
+
+## Required parameters
+
+* `root_dir_path`: path to the root directory for reversario files to reside in on a remote host e.g. `~/apps/`

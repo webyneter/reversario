@@ -3,23 +3,3 @@
 - fail:
     msg: "'{{ root_dir_path }}' is not defined"
   when: root_dir_path is not defined
-
-- fail:
-    msg: "'{{ commit_sha }}' is not defined"
-  when: commit_sha is not defined
-
-- fail:
-    msg: "'{{ registry_url }}' is not defined"
-  when: registry_url is not defined
-
-- fail:
-    msg: "'{{ registry_full_path }}' is not defined"
-  when: registry_full_path is not defined
-
-- fail:
-    msg: "'{{ registry_username }}' is not defined"
-  when: registry_username is not defined
-
-- fail:
-    msg: "'{{ registry_password }}' is not defined"
-  when: registry_password is not defined
