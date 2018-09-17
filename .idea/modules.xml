@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/reversario.iml" filepath="$PROJECT_DIR$/.idea/reversario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ansible-role-reversario.iml" filepath="$PROJECT_DIR$/.idea/ansible-role-reversario.iml" />
     </modules>
   </component>
 </project>
