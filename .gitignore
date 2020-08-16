@@ -172,3 +172,5 @@ Session.vim
 tags
 ### Ansible template
 *.retry
+### Project
+.idea/
