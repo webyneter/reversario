@@ -6,7 +6,7 @@
 
 - fail:
     msg: "'stack_to_launch' must equal 'nginx' or 'traefik'"
-  when: stack_to_launch not in [nginx, traefik]
+  when: stack_to_launch not in ['nginx', 'traefik']
 
 - fail:
     msg: "'letsencrypt_email' is not defined"
