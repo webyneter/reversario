@@ -12,7 +12,8 @@
   copy:
     src: "{{ item }}"
     dest: "{{ project_dir_path }}"
-  loop: "{{ stack_to_launch }}"
+  loop:
+    - "./{{ stack_to_launch }}.yml"
 
 - name: "Launch {{ stack_to_launch }} stack"
   environment: "{{ lookup('vars', stack_to_launch + '_environment')}}"
