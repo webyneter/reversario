@@ -1,6 +1,6 @@
 ---
 
-- include_tasks: check_required_vars.yml
+- include_tasks: check_vars.yml
 
 - name: "Create {{ project_dir_path }}/"
   file:
@@ -8,18 +8,18 @@
     recurse: yes
     state: directory
 
-- name: "Copy docker-compose files to {{ project_dir_path }}/"
+- name: "Copy {{ stack_to_launch }} files to {{ project_dir_path }}/"
   copy:
     src: "{{ item }}"
     dest: "{{ project_dir_path }}"
-  loop:
-  - ./docker-compose.yml
+  loop: "{{ stack_to_launch }}"
 
-- name: Re/start stack
+- name: "Launch {{ stack_to_launch }} stack"
+  environment: "{{ lookup('vars', stack_to_launch + '_environment')}}"
   command: >
     docker-compose
       --project-name "{{ project_name }}"
-      --file "{{ project_dir_path }}/docker-compose.yml"
+      --file "{{ project_dir_path }}/{{ stack_to_launch }}.yml"
       up
       --detach
       --force-recreate

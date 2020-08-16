@@ -1,5 +1,0 @@
----
-
-- fail:
-    msg: "'{{ root_dir_path }}' is not defined"
-  when: root_dir_path is not defined

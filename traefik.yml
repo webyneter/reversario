@@ -1,0 +1,23 @@
+version: '3.6'
+
+volumes:
+  traefik_letsencrypt:
+
+services:
+  traefik:
+    image: traefik:2.2.8
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    command:
+      - --log.level=DEBUG
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - "--certificatesresolvers.letsencrypt.acme.email=${LETSENCRYPT_EMAIL}"
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
