@@ -18,8 +18,8 @@ services:
       - nginx_html:/usr/share/nginx/html
       - nginx_certs:/etc/nginx/certs:ro
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
 
   nginx-gen:
     image: webyneter/nginx-gen:0.7.3
