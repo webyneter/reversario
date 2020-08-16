@@ -10,4 +10,4 @@
 
 - fail:
     msg: "'letsencrypt_email' is not defined"
-  when: stack_to_launch == traefik and letsencrypt_email is not defined
+  when: stack_to_launch == 'traefik' and letsencrypt_email is not defined
