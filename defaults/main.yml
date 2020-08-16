@@ -1,0 +1,5 @@
+---
+
+stack_to_launch: nginx
+
+nginx_environment:

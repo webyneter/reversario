@@ -4,9 +4,5 @@ project_name: "reversario"
 
 project_dir_path: "{{ root_dir_path }}/{{ project_name }}"
 
-stack_to_launch: nginx
-
-nginx_environment:
-
 traefik_environment:
   LETSENCRYPT_EMAIL: "{{ letsencrypt_email }}"
