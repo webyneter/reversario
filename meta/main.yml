@@ -8,6 +8,4 @@ galaxy_info:
   platforms:
   - name: Ubuntu
     versions:
-    - xenial  # 16.04
-    - yakkety  # 16.10
-    - bionic  # 18.04
+    - bionic
